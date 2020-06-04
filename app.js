@@ -36,6 +36,7 @@ var server = http.createServer(function (req, res) {
 
 // Listen on port 3000, IP defaults to 127.0.0.1
 server.listen(port);
+console.log(os.hostname())
 
 
 
