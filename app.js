@@ -1,7 +1,9 @@
-var port = process.env.PORT || 3000,
+var port = process.env.PORT || 5500,
     http = require('http'),
     fs = require('fs'),
     html = fs.readFileSync('index.html');
+
+const os = require("os");
 
 var log = function(entry) {
     fs.appendFileSync('/tmp/sample-app.log', new Date().toISOString() + ' - ' + entry + '\n');
@@ -27,13 +29,15 @@ var server = http.createServer(function (req, res) {
         });
     } else {
         res.writeHead(200);
-        res.write(html);
+        res.write(html + `<div style="position: fixed;">${os.hostname()}</div>`);
         res.end();
     }
 });
 
 // Listen on port 3000, IP defaults to 127.0.0.1
 server.listen(port);
+
+
 
 // Put a friendly message on the terminal
 console.log('Server running at http://127.0.0.1:' + port + '/');
