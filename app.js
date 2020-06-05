@@ -10,7 +10,7 @@ var log = function(entry) {
 };
 
 var server = http.createServer(function (req, res) {
-    console.log(os.hostname())
+
     if (req.method === 'POST') {
         var body = '';
 
@@ -30,7 +30,7 @@ var server = http.createServer(function (req, res) {
         });
     } else {
         res.writeHead(200);
-        res.write(html + `<div style="position: fixed;">Hostname - ${os.hostname()}</div>`);
+        res.write(html + `<div style="position: fixed;">Hostname demo- ${os.hostname()}</div>`);
         res.end();
     }
 });
