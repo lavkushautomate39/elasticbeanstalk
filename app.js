@@ -30,7 +30,7 @@ var server = http.createServer(function (req, res) {
         });
     } else {
         res.writeHead(200);
-        res.write(html + `<div style="position: fixed;">${os.hostname()}</div>`);
+        res.write(html + `<div style="position: fixed;">Hostname - ${os.hostname()}</div>`);
         res.end();
     }
 });
